@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Villa Badoer : by Andrea Somma" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Villa Badoer</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Andreaplus/plus">View on GitHub</a>
+
+          <h1 id="project_title">Villa Badoer</h1>
+          <h2 id="project_tagline">by Andrea Somma</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Andreaplus/plus/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Andreaplus/plus/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p><strong>Villa Badoer</strong> is a villa in Fratta Polesine in the Veneto region of northern Italy. It was designed in 1556 by Andrea Palladio for the Venetian noble Francesco Badoer, and built between 1557 and 1563, on the site of a medieval castle which guarded a bridge across a navigable canal. This was the first time Palladio used his fully developed temple pediment in the facade of a villa.
+<img src="http://upload.wikimedia.org/wikipedia/commons/4/48/Villa_Badoer_Fratta_Polesine_facciata_by_Marcok_2009-08-16_n08.jpg" alt="Villa Badoer in Fratta Polesine">
+Villa Badoer has been part since 1996 of the UNESCO World Heritage Site "City of Vicenza and the Palladian Villas of the Veneto". The building is open to the public and one of the wings houses the National archeological museum of Fratta Polesine, opened in 2009.</p>
+
+<p><em><a href="http://en.wikipedia.org/wiki/Villa_Badoer">Source: Wikipedia</a></em></p>
+
+<hr><h2>Project Decomposition</h2>
+
+<p>To make this project, i decided to divide the work into 10 main parts, which follows:</p>
+
+<ol>
+<li>Frontal Side and Windows</li>
+<li>Stairs and Little Columns</li>
+<li>Left and Right Side</li>
+<li>Base</li>
+<li>Back Side</li>
+<li>Grates</li>
+<li>Pillars</li>
+<li>Roof</li>
+<li>Garden</li>
+<li>Extras</li>
+</ol><p>Here is a few sketches made by me:
+<img src="https://dl.dropbox.com/u/45798891/images/Foto397.jpg" alt="sketch1"><img src="https://dl.dropbox.com/u/45798891/images/Foto398.jpg" alt="sketch2"></p>
+
+<hr><h3>Step 1 - The frontal side and the windows</h3>
+
+<p>This part is full of base structures, which i used to create the walls, the windows and the doors, but there are also more complex structures. The hardest part is the front door's decoration, visible in white.
+<img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/frontal%20side.jpg" alt="Frontal Side">
+Here are some of the function used:</p>
+
+<ol>
+<li>SIMPLEX_GRID</li>
+<li>CYL_SURFACE</li>
+<li>STRUCT</li>
+<li>BEZIER</li>
+<li>NUBS (Transfinite Non-uniform B-Spline)</li>
+<li>BOUNDARY</li>
+<li>COLOUR</li>
+</ol><p>and many others!</p>
+
+<hr><h3>Step 2 - The beautiful stairs</h3>
+
+<p>This is one of the thoughest part of the work, and also the heaviest code in the project. Doing the stairs using simple CUBOIDs was to easy, and not so true to the model. So i decided to design one stair and multiply it. Also the little lateral column wasn't easy to do. It required do model a specific curve and rotate it.
+<img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/steps%20and%20columns.jpg" alt="Stairs and little columns">
+For this part, here is a list of some functions used:</p>
+
+<ol>
+<li>NUBS</li>
+<li>BEZIER</li>
+<li>CUBOID</li>
+<li>S (Scale)</li>
+<li>T (Translation)</li>
+<li>TRIANGLE_STRIP</li>
+</ol><p>and others!</p>
+
+<hr><h3>Step 3 - The lateral sides</h3>
+
+<p>This part features the realization of both the left and rigth side, but it's not so difficult, because once created one side, the other one is very similar. I decided to begin with the left side, and to obtain a big part of the right side by using S([0])([-1])(); with this we obtain the mirroring. The 0 represent the X axis, and the -1 is the mirroring. Here is a picture of the left side: <img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/left%20side.jpg" alt="Left side of the villa"> In this screenshot we can also see the grates, presented later, in part 6. There are also the chimneys. There are 2 on the left side, and one on the right.</p>
+
+<p>A list of some function used:</p>
+
+<ol>
+<li>SIMPLEX_GRID</li>
+<li>STRUCT</li>
+<li>MAP</li>
+<li>BEZIER</li>
+<li>TRIANGLE_STRIP</li>
+</ol><hr><h3>Step 4 - The base of the villa</h3>
+
+<p>This is one of the simplest part, and features a very few bucket of functions.
+Here is a snapshot: <img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/base.jpg" alt="Base of the villa">
+This represent the structure made of red bricks.</p>
+
+<p>And this are the only function used to realize it:</p>
+
+<ol>
+<li>CUBOID</li>
+<li>T</li>
+<li>STRUCT</li>
+<li>COLOUR</li>
+</ol><hr><h3>Step 5 - The back side</h3>
+
+<p>Another not so difficult part is the representation of the back side of the villa, in which we can see a lot of windows and grates. <img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/back%20side.jpg" alt="Back of the villa">
+Also in this screen we can see the grates.
+Here is a list of some function used:</p>
+
+<ol>
+<li>SIMPLEX_GRID</li>
+<li>STRUCT</li>
+<li>CYL_SURFACE</li>
+<li>R (Rotate)</li>
+</ol><hr><h3>Step 6 - Finally the grates!</h3>
+
+<p>Yes, in this part i finally decided to represent the grates, that i have used later in all the four sides of the villa. I created the two types of grates, the little and the big ones, plus the gates. Here are the pictures:
+<img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/little%20grate.jpg" alt="Little grate"><img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/big%20grate.jpg" alt="Big grate"><img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/gate.jpg" alt="The gate">
+The function used are some that we've already seen:</p>
+
+<ol>
+<li>CUBOID</li>
+<li>BOUNDARY</li>
+<li>CYL_SURFACE</li>
+<li>COLOUR</li>
+</ol><p>Here is the code for creating the big one:</p>
+
+<div class="highlight">
+<pre>  <span class="kd">function</span> <span class="nx">creaGrataInterna</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">cilindro1</span> <span class="o">=</span> <span class="nx">drawCylinderPieno</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">1.7</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+    <span class="nx">cilindro1</span> <span class="o">=</span> <span class="nx">R</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])(</span><span class="o">-</span><span class="nx">PI</span><span class="o">/</span><span class="mi">2</span><span class="p">)(</span><span class="nx">cilindro1</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">cilindro2</span> <span class="o">=</span> <span class="nx">drawCylinderPieno</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+    <span class="nx">cilindro2</span> <span class="o">=</span> <span class="nx">T</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])([</span><span class="mf">0.01</span><span class="p">,</span><span class="o">-</span><span class="mf">0.1</span><span class="p">])(</span><span class="nx">cilindro2</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">cilindro3</span> <span class="o">=</span> <span class="nx">T</span><span class="p">([</span><span class="mi">1</span><span class="p">])([</span><span class="mf">1.68</span><span class="p">])(</span><span class="nx">cilindro2</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">verticale</span> <span class="o">=</span> <span class="nx">STRUCT</span><span class="p">([</span><span class="nx">cilindro1</span><span class="p">,</span> <span class="nx">cilindro2</span><span class="p">,</span> <span class="nx">cilindro3</span><span class="p">]);</span>
+
+    <span class="kd">var</span> <span class="nx">cilindro4</span> <span class="o">=</span> <span class="nx">drawCylinderPieno</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">1.2</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+    <span class="nx">cilindro4</span> <span class="o">=</span> <span class="nx">R</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">])(</span><span class="o">-</span><span class="nx">PI</span><span class="o">/</span><span class="mi">2</span><span class="p">)(</span><span class="nx">cilindro4</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">cilindro5</span> <span class="o">=</span> <span class="nx">drawCylinderPieno</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+    <span class="nx">cilindro5</span> <span class="o">=</span> <span class="nx">T</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">])([</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span><span class="o">-</span><span class="mf">0.1</span><span class="p">])(</span><span class="nx">cilindro5</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">cilindro6</span> <span class="o">=</span> <span class="nx">T</span><span class="p">([</span><span class="mi">0</span><span class="p">])([</span><span class="o">-</span><span class="mf">1.18</span><span class="p">])(</span><span class="nx">cilindro5</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">orizzontale</span> <span class="o">=</span> <span class="nx">STRUCT</span><span class="p">([</span><span class="nx">cilindro4</span><span class="p">,</span> <span class="nx">cilindro5</span><span class="p">,</span> <span class="nx">cilindro6</span><span class="p">]);</span>
+    <span class="nx">orizzontale</span> <span class="o">=</span> <span class="nx">T</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])([</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">])(</span><span class="nx">orizzontale</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">verticali</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="kd">var</span> <span class="nx">orizzontali</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">for</span><span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="mi">7</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">verticali</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">T</span><span class="p">([</span><span class="mi">0</span><span class="p">])([</span><span class="mf">0.165</span><span class="o">*</span><span class="nx">i</span><span class="p">])(</span><span class="nx">verticale</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="k">for</span><span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="mi">13</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">orizzontali</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">T</span><span class="p">([</span><span class="mi">1</span><span class="p">])([</span><span class="mf">0.125</span><span class="o">*</span><span class="nx">i</span><span class="p">])(</span><span class="nx">orizzontale</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="nx">verticali</span> <span class="o">=</span> <span class="nx">STRUCT</span><span class="p">(</span><span class="nx">verticali</span><span class="p">);</span>
+    <span class="nx">orizzontali</span> <span class="o">=</span> <span class="nx">STRUCT</span><span class="p">(</span><span class="nx">orizzontali</span><span class="p">);</span>
+
+    <span class="kd">var</span> <span class="nx">struct</span> <span class="o">=</span> <span class="nx">STRUCT</span><span class="p">([</span><span class="nx">orizzontali</span><span class="p">,</span> <span class="nx">verticali</span><span class="p">]);</span>
+    <span class="k">return</span> <span class="nx">black</span><span class="p">(</span><span class="nx">struct</span><span class="p">);</span>
+  <span class="p">}</span>
+</pre>
+</div>
+
+
+<p><em>I'm sorry, but the code it's not all english. Sometimes i feel myself more comfortable with italian names.</em></p>
+
+<hr><h3>Step 7 - The pillars</h3>
+
+<p>In this step i finally needed the pillars, so i began their realization. It's divided in three parts: the base (a CUBOID), the pillar (a cylindrical-like shape), and the capital. The last one is the most difficult to realize, and so i had to find a compromise between complexity and realism. I can say the final result isn't so bad.
+Here is a picture of the final structure, already assembled:</p>
+
+<p>(Upper part)
+<img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/pillar_up.JPG" alt="PillarUp">
+(Bottom part)
+<img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/pillar_down.JPG" alt="PillarDown"></p>
+
+<p>Here are some function used:</p>
+
+<ol>
+<li>NUBS</li>
+<li>ROTATIONAL_SURFACE</li>
+<li>MAP</li>
+<li>DOMAIN</li>
+<li>BEZIER</li>
+</ol><hr><h3>Step 8 - The big red roof / The upper part</h3>
+
+<p>One of the most difficult part. It has a lot of structures to realize. It's not just a red roof... There is a window, the frontal part, the tubes for the rain... And not least, the decoration on the frontal part. The last one took me to define a NUBS curve with 27 points. The upper part also contains the wall's white brick decoration, which required a great precision.
+Here is some pictures:
+<img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/roof.jpg" alt="The roof"><img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/roof%20view.jpg" alt="The above view of the roof">
+And a part of the code to realize the X axis' brick translations:</p>
+
+<div class="highlight">
+<pre>  <span class="kd">function</span> <span class="nx">creaMattonatoX</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">cube1</span> <span class="o">=</span> <span class="nx">CUBOID</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.2</span><span class="p">]);</span>
+    <span class="kd">var</span> <span class="nx">cubi</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">for</span><span class="p">(</span><span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;=</span><span class="mf">15.4</span><span class="p">;</span> <span class="nx">i</span><span class="o">=</span><span class="nx">i</span><span class="o">+</span><span class="mf">0.25</span><span class="p">){</span>
+      <span class="nx">cubi</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">T</span><span class="p">([</span><span class="mi">0</span><span class="p">])([</span><span class="nx">i</span><span class="p">])(</span><span class="nx">cube1</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="kd">var</span> <span class="nx">struct</span> <span class="o">=</span> <span class="nx">STRUCT</span><span class="p">(</span><span class="nx">cubi</span><span class="p">);</span>
+    <span class="nx">struct</span> <span class="o">=</span> <span class="nx">T</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])([</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">5.6</span><span class="p">,</span><span class="mf">0.4</span><span class="p">])(</span><span class="nx">struct</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">struct</span><span class="p">;</span>
+  <span class="p">}</span>
+</pre>
+</div>
+
+
+<p>Some of the functions used are:</p>
+
+<ol>
+<li>CUBOID</li>
+<li>STRUCT</li>
+<li>TRIANGLE_STRIP</li>
+<li>R</li>
+<li>A user defined function to create Full Cylinders</li>
+</ol><hr><h3>Step 9 - The gardens</h3>
+
+<p>In this i build an approximate representation of the gardens. Not much more to say... It's very simple. Contains only CUBOIDs and translations. Screenshot: <img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/garden.jpg" alt="The garden"></p>
+
+<hr><h3>Step 10 - Extras</h3>
+
+<p>This is the last part, in which i made some rearrangements to make the villa even more realistic. I corrected initials planning errors and added some other things. In the screenshot below, we can see the bottom borders of the villa, added at last:
+<img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/extras.jpg" alt="Extras"></p>
+
+<hr><h3><strong><em>The model completed</em></strong></h3>
+
+<p>So here it is! The moded it's all'assembled, and here are some screenshot from different views:
+<img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/view%20frontal.jpg" alt="frontal"><img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/view%20lateral.jpg" alt="lateral"><img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/view%20back.jpg" alt="back"><img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/view%20total.jpg" alt="all"></p>
+
+<hr><h3><strong><em>Comparisons</em></strong></h3>
+
+<p>So, in conclusion, here are some comparisons picture and screenshot from different points of view.</p>
+
+<p><strong>Frontal view:</strong>
+<img src="https://dl.dropbox.com/u/45798891/images/badoer_facciata.jpg" alt="frontpic"><img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/CatturaS1.jpg" alt="frontscr"></p>
+
+<p><strong>Pillar view:</strong>
+<img src="https://dl.dropbox.com/u/45798891/images/badoer_facciata3.jpg" alt="pillarpic"><img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/CatturaS2.jpg" alt="pillarscr"></p>
+
+<p><strong>Left view:</strong>
+<img src="https://dl.dropbox.com/u/45798891/images/badoer_facciata4.jpg" alt="leftpic"><img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/CatturaS3.jpg" alt="leftscr"></p>
+
+<p><strong>Lateral (left) view:</strong>
+<img src="https://dl.dropbox.com/u/45798891/images/badoer_lateral.jpg" alt="latpic"><img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/CatturaS4.jpg" alt="latscr"></p>
+
+<p><strong>Doors view:</strong>
+<img src="https://dl.dropbox.com/u/45798891/images/badoer_loggia.jpg" alt="doorspic"><img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/CatturaS5.jpg" alt="doorsscr"></p>
+
+<p><strong>Back view:</strong>
+<img src="https://dl.dropbox.com/u/45798891/images/badoer_posteriore.jpg" alt="backpic"><img src="https://dl.dropbox.com/u/45798891/Villa%20Badoer/CatturaS6.jpg" alt="backscr"></p>
+
+<p><em>Link to the source code: <a href="https://github.com/cvdlab-cg/418839/tree/master/final-project">Project's folder</a></em></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Villa Badoer maintained by <a href="https://github.com/Andreaplus">Andreaplus</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
